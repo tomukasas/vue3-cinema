@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "concurrently \"npm:serve:*\" -k",
+    "serve": "concurrently \"npm:serve:*\" -k --host localhost",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint api src",
     "serve:client": "vue-cli-service serve",
