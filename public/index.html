@@ -13,20 +13,18 @@
     </noscript>
     <div id="app">
       <div id="title">
-        <img src="logo.png">
+        <img src="/logo.png">
         <h1>Vue.js Cinema</h1>
       </div>
-      <div id="overview">
-        <div class="main">
-          <movie-list
-                  v-bind:genres="genres"
-                  v-bind:movies="movies"
-                  v-bind:times="times"
-                  v-bind:day="day"
-          ></movie-list>
-          <movie-filter v-on:check-filter="checkFilter"></movie-filter>
-        </div>
-      </div>
+      <router-view
+        v-bind:genres="genres"
+        v-bind:movies="movies"
+        v-bind:times="times"
+        v-bind:day="day"
+        v-on:check-filter="checkFilter"
+      >
+
+      </router-view>
     </div>
   </body>
 </html>

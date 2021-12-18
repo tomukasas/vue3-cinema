@@ -1,11 +1,10 @@
 import "@/assets/style.scss";
 import { createApp } from "vue";
-import MovieList from "@/components/MovieList";
-import MovieFilter from "@/components/MovieFilter";
 import axios from "axios";
 import dayjs from "dayjs";
+import router from "@/router";
 
-createApp({
+const app = createApp({
   methods: {
     checkFilter(checked, title, group) {
       if (checked) {
@@ -21,12 +20,11 @@ createApp({
     day: dayjs(),
     times: []
   }),
-  components: {
-    MovieFilter,
-    MovieList
-  },
   async created() {
     const { data } = await axios.get("/api");
     this.movies = data;
   }
-}).mount("#app");
+});
+
+app.use(router);
+app.mount("#app");

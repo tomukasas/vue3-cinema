@@ -7,7 +7,13 @@
         v-bind:movie="movie"
         v-bind:day="day"
         v-bind:times="times"
-      />
+      >
+        <movie-sessions
+          :movie="movie"
+          :times="times"
+          :day="day"
+        />
+      </movie-item>
     </div>
     <div v-else-if="movies.length" class="no-results">
       No results.
@@ -20,10 +26,13 @@
 
 <script>
 import dayjs from "dayjs";
-import MovieItem from "@/components/MovieItem";
 import times from "@/util/times";
+import MovieItem from "@/components/MovieItem";
+import MovieSessions from "@/components/MovieSessions";
+
 export default {
   components: {
+    MovieSessions,
     MovieItem
   },
   props: {
