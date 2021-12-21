@@ -1,12 +1,16 @@
 <template>
   <div id="overview">
+    <day-select
+      :day="day"
+      @day-selected="daySelected"
+    />
     <div class="main">
       <movie-list
         v-bind:genres="genres"
         v-bind:movies="movies"
         v-bind:times="times"
         v-bind:day="day"
-      ></movie-list>
+      />
       <movie-filter v-on:check-filter="checkFilter" />
     </div>
   </div>
@@ -14,6 +18,7 @@
 <script>
 import MovieList from "@/components/MovieList";
 import MovieFilter from "@/components/MovieFilter";
+import DaySelect from "@/components/DaySelect";
 
 export default {
   props: {
@@ -22,14 +27,18 @@ export default {
     day: Object,
     times: Array
   },
-  emits: ["check-filter"],
+  emits: ["check-filter", "day-selected"],
   components: {
     MovieFilter,
-    MovieList
+    MovieList,
+    DaySelect
   },
   methods: {
     checkFilter(checked, title, group) {
       this.$emit("check-filter", checked, title, group);
+    },
+    daySelected(day) {
+      this.$emit("day-selected", day);
     }
   }
 };
