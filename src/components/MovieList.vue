@@ -29,6 +29,7 @@ import MovieItem from "@/components/MovieItem";
 import times from "@/util/times";
 import MovieSessions from "@/components/MovieSessions";
 export default {
+  name: "MovieList",
   components: {
     MovieItem,
     MovieSessions

@@ -6,12 +6,17 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title><%= htmlWebpackPlugin.options.title %></title>
+    <style>
+      [v-cloak] {
+          display: none;
+      }
+    </style>
   </head>
   <body>
     <noscript>
       <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
-    <div id="app">
+    <div id="app" v-cloak>
       <div id="title">
         <img src="/logo.png">
         <h1>Vue.js Cinema</h1>
@@ -23,7 +28,12 @@
         v-bind:day="day"
         v-on:check-filter="checkFilter"
         v-on:day-selected="daySelected"
-      ></router-view>
+        v-slot="{ Component }"
+      >
+        <keep-alive>
+          <component :is="Component"></component>
+        </keep-alive>
+      </router-view>
     </div>
   </body>
 </html>

@@ -3,6 +3,7 @@ import { createApp } from "vue";
 import router from "@/router";
 import axios from "axios";
 import dayjs from "dayjs";
+import tooltip from "@/plugins/tooltip";
 
 const app = createApp({
   methods: {
@@ -29,4 +30,5 @@ const app = createApp({
   }
 });
 app.use(router);
+app.use(tooltip);
 app.mount("#app");

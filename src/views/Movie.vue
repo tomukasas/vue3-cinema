@@ -34,6 +34,7 @@ import MovieItem from "@/components/MovieItem.vue";
 import axios from "axios";
 
 export default {
+  name: "Movie",
   props: {
     day: Object,
     times: Array

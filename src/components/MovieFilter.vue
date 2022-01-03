@@ -28,6 +28,7 @@ import CheckFilter from "@/components/CheckFilter";
 import times from "@/util/times";
 
 export default {
+  name: "MovieFilter",
   data: () => ({
     genres,
     times

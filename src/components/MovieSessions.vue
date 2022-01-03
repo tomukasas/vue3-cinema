@@ -2,8 +2,9 @@
   <div class="movie-sessions">
     <div
       v-for="session in filteredSessions"
-      class="session-time-wrapper"
+      class="session-time-wrapper tooltip-wrapper"
       v-bind:key="session.id"
+      v-tooltip="session.seats"
     >
       <div class="session-time">
         {{ formatSessionTime(session.time) }}
@@ -14,7 +15,9 @@
 <script>
 import dayjs from "dayjs";
 import times from "@/util/times";
+
 export default {
+  name: "MovieSessions",
   props: {
     movie: Object,
     day: Object,
